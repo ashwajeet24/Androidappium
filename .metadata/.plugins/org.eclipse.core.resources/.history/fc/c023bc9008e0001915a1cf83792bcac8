@@ -1,0 +1,13 @@
+package googlepixeldevice;
+
+import java.net.MalformedURLException;
+
+public class FunctionalTest extends Base {
+
+	public static void main(String[] args) throws MalformedURLException 
+	{
+		Capabilities();
+		
+	}
+
+}
