@@ -12,7 +12,6 @@ import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.android.nativekey.AndroidKey;
 
 import static java.time.Duration.ofSeconds;
 
@@ -144,40 +143,19 @@ public class FunctionalTest extends Base
 			driver.findElementByAndroidUIAutomator("text(\"Date Widgets\")").click();
 			driver.findElementByAndroidUIAutomator("text(\"1. Dialog\")").click();
 			driver.findElementByAndroidUIAutomator("text(\"CHANGE THE TIME\")").click();
-			WebElement hour = driver.findElementByXPath("//*[@content-desc= '9']");
-			hour.click();
+			driver.findElementByXPath("//*[@content-desc= '9']").click();
 			Thread.sleep(2000);
 			WebElement setTime= driver.findElementByXPath("//*[@content-desc= '0']");
 			TouchAction touch = new TouchAction(driver);
 			touch.tap(tapOptions().withElement(element(setTime))).perform();
 			//touch.longPress(longPressOptions().withElement(set))
 			
-			WebElement oneTime = driver.findElementByXPath("//*[@content-desc= '0']");
+			WebElement oneTime = driver.findElementByXPath("//*[@content-desc= '00']");
 			WebElement anotherTime = driver.findElementByXPath("//*[@content-desc= '45']");
 			
 			touch.longPress(longPressOptions().withElement(element(oneTime)).withDuration(ofSeconds(3))).moveTo(element(anotherTime)).release().perform();
-			Thread.sleep(2000);
-			driver.findElementByAndroidUIAutomator("text(\"AM\")").click();
-			driver.findElementByAndroidUIAutomator("text(\"OK\")").click();
-			
 
 		
-		}
-		
-		public void scrollDown() throws MalformedURLException
-		{
-			AndroidDriver<AndroidElement> driver = Capabilities();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
-			driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Hover Events\"))").click();
-			driver.navigate().back();
-			driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Seek Bar\"))").click();
-			
-			
-
-			
-			
-			
 		}
 		
 

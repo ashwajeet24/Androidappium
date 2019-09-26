@@ -14,7 +14,6 @@ public class MainTestClass extends FunctionalTest
 			//Test.View2();
 			//Test.View3();
 			//Test.Viewswipe();
-			//Test.changeTime();
-			Test.scrollDown();
+			Test.changeTime();
 		}	
 }
