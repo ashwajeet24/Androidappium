@@ -113,5 +113,23 @@ public class FunctionalTest extends Base
 		
 			
 		}
+		
+		public void Viewswipe() throws MalformedURLException, InterruptedException 
+		{
+			AndroidDriver<AndroidElement> driver = Capabilities();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+			driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
+			driver.findElementByAndroidUIAutomator("text(\"Date Widgets\")").click();
+			driver.findElementByAndroidUIAutomator("text(\"2. Inline\")").click();
+			driver.findElementByXPath("//*[@content-desc= '9']").click();
+			
+			// Now swiping through the clock sticks in 180 degree
+			// long press //on element//2 sec//move to another element and you release
+			WebElement oneTime = driver.findElementByXPath("//*[@content-desc= '15']");
+			WebElement anotherTime = driver.findElementByXPath("//*[@content-desc= '45']");
+			TouchAction touch = new TouchAction(driver);
+			touch.longPress(longPressOptions().withElement(element(oneTime)).withDuration(ofSeconds(3))).moveTo(element(anotherTime)).release().perform();
+		}
 
 	}
