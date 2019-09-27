@@ -9,12 +9,14 @@ public class MainTestClass extends FunctionalTest
 		{
 		
 			FunctionalTest Test = new FunctionalTest();
-			//Test.Preferences();
-			//Test.Views1();
-			//Test.View2();
-			//Test.View3();
-			//Test.Viewswipe();
-			//Test.changeTime();
+			Test.Preferences();
+			Test.Views1();
+			Test.View2();
+			Test.View3();
+			Test.Viewswipe();
+			Test.changeTime();
 			Test.scrollDown();
+			Test.dragAndDrop();
+		
 		}	
 }
